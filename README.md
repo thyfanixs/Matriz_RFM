@@ -1,92 +1,146 @@
-<!-- Banner do Projeto -->
-<p align="center">
-  <img src="[assets/capa_rfm_powerbi.png](https://www.google.com/url?sa=i&url=https%3A%2F%2Fg4educacao.com%2Fblog%2Fo-que-e-matriz-rfm&psig=AOvVaw3Dww51HNE6gKtqMvcU7AxR&ust=1755108317633000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCPis3ZTuhY8DFQAAAAAdAAAAABAE)" alt="Análise RFM no Power BI" width="800">
-</p>
-
-<!-- Badges -->
-<p align="center">
-  <img src="https://img.shields.io/badge/Power%20BI-Data%20Analytics-yellow" alt="Power BI">
-  <img src="https://img.shields.io/badge/DAX-Language-blue" alt="DAX">
-  <img src="https://img.shields.io/badge/SQL-Database-green" alt="SQL">
-  <img src="https://img.shields.io/github/license/seuusuario/seurepositorio" alt="License">
-  <img src="https://img.shields.io/github/last-commit/seuusuario/seurepositorio" alt="Last Commit">
-</p>
-
----
-
 # 📊 Análise RFM no Power BI
 
-Este projeto apresenta a construção de uma **Matriz RFM** (*Recência, Frequência e Valor Monetário*) no **Power BI**, conectada a uma base SQL corporativa e usando medidas DAX personalizadas para segmentar clientes.
+Uma implementação prática de análise RFM (Recência, Frequência, Valor Monetário) no Power BI para segmentação de clientes e otimização de estratégias de marketing.
 
-> A ideia surgiu em uma conversa com a equipe de marketing sobre identificar clientes mais ativos, os que estão sumindo e aqueles com alto potencial de crescimento.
+## 🎯 Sobre o Projeto
+
+Este projeto implementa uma análise RFM completa no Power BI, permitindo segmentar clientes com base em seu comportamento de compra. A análise RFM é uma técnica poderosa de marketing que classifica clientes usando três critérios principais:
+
+- **Recência (R)**: Tempo desde a última compra
+- **Frequência (F)**: Número de compras em determinado período
+- **Valor Monetário (M)**: Valor total gasto pelo cliente
+
+## 🏗️ Arquitetura do Modelo de Dados
+
+O projeto utiliza um modelo de dados em estrela conectado via SQL com as seguintes tabelas:
+
+### Tabela Fato
+- `fatoFaturamento` - Tabela principal com dados de vendas
+
+### Dimensões
+- `dimCliente` - Dados de identificação e classificação dos clientes
+- `dimRepresentante` - Agrupamento por representantes comerciais
+- `dimItem` - Produtos vendidos, preços e categorias
+- `dimCalendario` - Dimensão temporal para facilitar cálculos de recência
+
+## 🧮 Medidas DAX Principais
+
+### Data de Referência
+```dax
+Data_Referencia = MAX(Vendas[Data])
+```
+
+### Recência (dias desde última compra)
+```dax
+Recencia = 
+VAR UltimaCompra = CALCULATE(
+    MAX(fatoFaturamento[Data]),
+    ALLEXCEPT(dimCliente, dimCliente[ID Cliente])
+)
+VAR Hoje = MAX(dimCalendario[Data])
+RETURN
+DATEDIFF(UltimaCompra, Hoje, DAY)
+```
+
+### Frequência (meses ativos)
+```dax
+Frequencia = 
+CALCULATE(
+    DISTINCTCOUNT(dimCalendario[AnoMes]),
+    fatoFaturamento
+)
+```
+
+### Valor Monetário
+```dax
+ValorMonetario = SUM(fatoFaturamento[ValorFaturado])
+```
+
+## 📏 Sistema de Pontuação
+
+Cada métrica recebe uma pontuação de 1 a 5, onde 5 representa o melhor desempenho:
+
+### Escore de Recência
+```dax
+RecenciaScore = 
+SWITCH(
+    TRUE(),
+    [Recencia] <= 30, 5,
+    [Recencia] <= 60, 4,
+    [Recencia] <= 90, 3,
+    [Recencia] <= 180, 2,
+    1
+)
+```
+
+### Escore de Frequência
+```dax
+FrequenciaScore = 
+SWITCH(
+    TRUE(),
+    [Frequencia] >= 12, 5,
+    [Frequencia] >= 9, 4,
+    [Frequencia] >= 6, 3,
+    [Frequencia] >= 3, 2,
+    1
+)
+```
+
+## 👥 Segmentação de Clientes
+
+O sistema classifica clientes em diferentes perfis:
+
+- **🏆 Campeões**: Compraram recentemente, com alta frequência e valor alto
+- **💎 Clientes Leais**: Frequência e recência altas com valor médio/alto
+- **🌱 Clientes com Potencial**: Alta frequência mas valor baixo
+- **⚠️ Em Risco**: Baixa frequência e recência, mas já gastaram bem
+- **❌ Perdidos**: Pouca frequência, compra antiga e baixo valor
+- **🆕 Clientes Recentes**: Compra recente mas ainda com pouca atividade
+- **💰 Clientes Valiosos em Desenvolvimento**: Valor alto mas frequência média
+
+## 📈 Visualização
+
+### Gráfico de Dispersão
+O projeto utiliza gráfico de dispersão para visualizar a matriz RFM:
+- **Eixo X**: Recência
+- **Eixo Y**: Frequência  
+- **Tamanho/Cor dos pontos**: Valor Monetário
+
+### Dashboard Complementar
+Inclui indicadores principais:
+- Total de clientes
+- Faturamento dos últimos 12 meses
+- Quantidade de compras no período
+- Ticket médio
+- Data da última compra
+
+## 🚀 Como Usar
+
+1. **Prepare seus dados**: Certifique-se de ter tabelas de vendas, clientes e datas
+2. **Implemente as medidas**: Copie as fórmulas DAX adaptando os nomes das suas tabelas
+3. **Configure os escores**: Ajuste os intervalos conforme seu negócio
+4. **Crie as visualizações**: Monte o gráfico de dispersão e dashboard complementar
+5. **Valide com stakeholders**: Ajuste filtros e segmentações conforme necessário
+
+## 🎯 Benefícios
+
+- **Segmentação inteligente** de clientes
+- **Campanhas direcionadas** de marketing
+- **Identificação de oportunidades** de cross-sell e up-sell  
+- **Prevenção de churn** através da identificação de clientes em risco
+- **Otimização de recursos** de marketing e vendas
+
+## 📋 Requisitos
+
+- Power BI Desktop
+- Acesso a dados de vendas com pelo menos: data, cliente, valor
+- Conhecimento básico de DAX
+- SQL Server (opcional, para modelo de dados complexo)
+
+## 🤝 Contribuição
+
+Sinta-se à vontade para contribuir com melhorias, sugestões ou adaptações para diferentes tipos de negócio.
 
 ---
 
-## 📋 Índice
-
-1. [O que é RFM](#-o-que-é-a-análise-rfm)
-2. [Modelo de Dados](#-modelo-de-dados)
-3. [Medidas DAX](#-medidas-dax-principais)
-4. [Atribuição de Escores](#-atribuição-de-escores)
-5. [Classificação Final](#-classificação-final)
-6. [Visualização](#-visualização-no-power-bi)
-7. [Resultados](#-resultados)
-8. [Como Reproduzir](#-como-reproduzir)
-9. [Screenshots](#-screenshots)
-10. [Licença](#-licença)
-
----
-
-## 🧐 O que é a Análise RFM
-
-A **Análise RFM** é uma técnica de segmentação de clientes baseada em:
-
-- **Recência (R)** → tempo desde a última compra  
-- **Frequência (F)** → número de compras no período  
-- **Valor Monetário (M)** → total gasto no período  
-
-Combinando esses três fatores, conseguimos classificar clientes e criar estratégias personalizadas.
-
----
-
-## 🗂 Modelo de Dados
-
-O modelo foi construído no formato **estrela**:
-
-```mermaid
-erDiagram
-    dimCliente {
-        int ID_Cliente
-        string Nome
-        string Segmento
-    }
-    dimRepresentante {
-        int ID_Representante
-        string Nome
-    }
-    dimItem {
-        int ID_Item
-        string Produto
-        float PrecoUnitario
-    }
-    dimCalendario {
-        date Data
-        string AnoMes
-    }
-    fatoFaturamento {
-        int ID_Venda
-        int ID_Cliente
-        int ID_Item
-        int ID_Representante
-        date Data
-        int Quantidade
-        float ValorFaturado
-    }
-
-    dimCliente ||--o{ fatoFaturamento : "relaciona"
-    dimRepresentante ||--o{ fatoFaturamento : "relaciona"
-    dimItem ||--o{ fatoFaturamento : "relaciona"
-    dimCalendario ||--o{ fatoFaturamento : "relaciona"
-
-
-
+*Este projeto foi desenvolvido com base na necessidade prática de segmentação de clientes e pode ser adaptado para diferentes contextos de negócio.*
