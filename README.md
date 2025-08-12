@@ -88,6 +88,8 @@ erDiagram
     dimItem ||--o{ fatoFaturamento : "relaciona"
     dimCalendario ||--o{ fatoFaturamento : "relaciona"
 
+
+
 ## 📐 Medidas DAX
 
 A seguir, as principais medidas utilizadas para cálculo da Recência, Frequência e Valor Monetário no modelo RFM.
