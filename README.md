@@ -1,6 +1,6 @@
 <!-- Banner do Projeto -->
 <p align="center">
-  <img src="assets/capa_rfm_powerbi.png" alt="Análise RFM no Power BI" width="800">
+  <img src="[assets/capa_rfm_powerbi.png](https://www.google.com/url?sa=i&url=https%3A%2F%2Fg4educacao.com%2Fblog%2Fo-que-e-matriz-rfm&psig=AOvVaw3Dww51HNE6gKtqMvcU7AxR&ust=1755108317633000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCPis3ZTuhY8DFQAAAAAdAAAAABAE)" alt="Análise RFM no Power BI" width="800">
 </p>
 
 <!-- Badges -->
