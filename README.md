@@ -158,7 +158,6 @@ Sinta-se à vontade para contribuir com melhorias, sugestões ou adaptações pa
 ---
 
 > *"Mal feito, feito"* ⚡  
-> *Minha marca registrada - às vezes o imperfeito é o que funciona!*
 
 ---
 
