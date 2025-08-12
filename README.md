@@ -1,6 +1,21 @@
 # 📊 Análise RFM no Power BI
 
+![RFM Analysis](https://img.shields.io/badge/RFM-Analysis-blue?style=for-the-badge)
+![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-yellow?style=for-the-badge)
+![DAX](https://img.shields.io/badge/DAX-Formulas-green?style=for-the-badge)
+
 Uma implementação prática de análise RFM (Recência, Frequência, Valor Monetário) no Power BI para segmentação de clientes e otimização de estratégias de marketing.
+
+## 📸 Screenshots
+
+![Dashboard Principal](https://via.placeholder.com/800x400/1f2937/ffffff?text=Dashboard+Principal+RFM)
+*Dashboard principal com matriz RFM e indicadores*
+
+![Gráfico de Dispersão](https://via.placeholder.com/600x400/374151/ffffff?text=Gráfico+de+Dispersão+RFM)
+*Visualização da matriz RFM em gráfico de dispersão*
+
+![Segmentação de Clientes](https://via.placeholder.com/700x300/6b7280/ffffff?text=Segmentação+de+Clientes)
+*Distribuição dos clientes por segmento*
 
 ## 🎯 Sobre o Projeto
 
@@ -13,6 +28,9 @@ Este projeto implementa uma análise RFM completa no Power BI, permitindo segmen
 ## 🏗️ Arquitetura do Modelo de Dados
 
 O projeto utiliza um modelo de dados em estrela conectado via SQL com as seguintes tabelas:
+
+![Modelo de Dados](https://via.placeholder.com/500x300/059669/ffffff?text=Modelo+Estrela+RFM)
+*Modelo de dados em estrela utilizado no projeto*
 
 ### Tabela Fato
 - `fatoFaturamento` - Tabela principal com dados de vendas
@@ -88,6 +106,9 @@ SWITCH(
 
 ## 👥 Segmentação de Clientes
 
+![Segmentos RFM](https://via.placeholder.com/600x400/dc2626/ffffff?text=Matriz+de+Segmentação+RFM)
+*Matriz visual dos diferentes segmentos de clientes*
+
 O sistema classifica clientes em diferentes perfis:
 
 - **🏆 Campeões**: Compraram recentemente, com alta frequência e valor alto
@@ -99,6 +120,9 @@ O sistema classifica clientes em diferentes perfis:
 - **💰 Clientes Valiosos em Desenvolvimento**: Valor alto mas frequência média
 
 ## 📈 Visualização
+
+![Visualização Completa](https://via.placeholder.com/800x500/7c3aed/ffffff?text=Dashboard+Completo+RFM)
+*Dashboard completo com todas as visualizações*
 
 ### Gráfico de Dispersão
 O projeto utiliza gráfico de dispersão para visualizar a matriz RFM:
@@ -140,6 +164,11 @@ Inclui indicadores principais:
 ## 🤝 Contribuição
 
 Sinta-se à vontade para contribuir com melhorias, sugestões ou adaptações para diferentes tipos de negócio.
+
+---
+
+> *"Mal feito, feito"* ⚡  
+> *Minha marca registrada - às vezes o imperfeito é o que funciona!*
 
 ---
 
