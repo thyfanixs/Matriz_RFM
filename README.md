@@ -8,13 +8,13 @@ Uma implementação prática de análise RFM (Recência, Frequência, Valor Mone
 
 ## 📸 Screenshots
 
-![Dashboard Principal](https://via.placeholder.com/800x400/1f2937/ffffff?text=Dashboard+Principal+RFM)
+![Dashboard Principal](https://github.com/user/repo/blob/main/images/dashboard-principal.png)
 *Dashboard principal com matriz RFM e indicadores*
 
-![Gráfico de Dispersão](https://via.placeholder.com/600x400/374151/ffffff?text=Gráfico+de+Dispersão+RFM)
+![Gráfico de Dispersão](https://github.com/user/repo/blob/main/images/grafico-dispersao.png)
 *Visualização da matriz RFM em gráfico de dispersão*
 
-![Segmentação de Clientes](https://via.placeholder.com/700x300/6b7280/ffffff?text=Segmentação+de+Clientes)
+![Segmentação de Clientes](https://github.com/user/repo/blob/main/images/segmentacao-clientes.png)
 *Distribuição dos clientes por segmento*
 
 ## 🎯 Sobre o Projeto
@@ -29,7 +29,7 @@ Este projeto implementa uma análise RFM completa no Power BI, permitindo segmen
 
 O projeto utiliza um modelo de dados em estrela conectado via SQL com as seguintes tabelas:
 
-![Modelo de Dados](https://via.placeholder.com/500x300/059669/ffffff?text=Modelo+Estrela+RFM)
+![Modelo de Dados](https://github.com/user/repo/blob/main/images/modelo-dados.png)
 *Modelo de dados em estrela utilizado no projeto*
 
 ### Tabela Fato
@@ -106,7 +106,7 @@ SWITCH(
 
 ## 👥 Segmentação de Clientes
 
-![Segmentos RFM](https://via.placeholder.com/600x400/dc2626/ffffff?text=Matriz+de+Segmentação+RFM)
+![Segmentos RFM](https://github.com/user/repo/blob/main/images/segmentos-rfm.png)
 *Matriz visual dos diferentes segmentos de clientes*
 
 O sistema classifica clientes em diferentes perfis:
@@ -121,7 +121,7 @@ O sistema classifica clientes em diferentes perfis:
 
 ## 📈 Visualização
 
-![Visualização Completa](https://via.placeholder.com/800x500/7c3aed/ffffff?text=Dashboard+Completo+RFM)
+![Visualização Completa](https://github.com/user/repo/blob/main/images/dashboard-completo.png)
 *Dashboard completo com todas as visualizações*
 
 ### Gráfico de Dispersão
