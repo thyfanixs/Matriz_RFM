@@ -6,16 +6,6 @@
 
 Uma implementação prática de análise RFM (Recência, Frequência, Valor Monetário) no Power BI para segmentação de clientes e otimização de estratégias de marketing.
 
-## 📸 Screenshots
-
-![Dashboard Principal](https://github.com/user/repo/blob/main/images/dashboard-principal.png)
-*Dashboard principal com matriz RFM e indicadores*
-
-![Gráfico de Dispersão](https://github.com/user/repo/blob/main/images/grafico-dispersao.png)
-*Visualização da matriz RFM em gráfico de dispersão*
-
-![Segmentação de Clientes](https://github.com/user/repo/blob/main/images/segmentacao-clientes.png)
-*Distribuição dos clientes por segmento*
 
 ## 🎯 Sobre o Projeto
 
@@ -29,7 +19,7 @@ Este projeto implementa uma análise RFM completa no Power BI, permitindo segmen
 
 O projeto utiliza um modelo de dados em estrela conectado via SQL com as seguintes tabelas:
 
-![Modelo de Dados](https://github.com/user/repo/blob/main/images/modelo-dados.png)
+![Modelo de Dados]([https://github.com/user/repo/blob/main/images/modelo-dados.png](https://www.google.com/url?sa=i&url=https%3A%2F%2Fblog.drbi.com.br%2Fblog%2Fo-que-e-um-esquema-em-estrela%2F&psig=AOvVaw0Ivug6Y-8rNZ06DSRHIwmK&ust=1755108762816000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCNijoejvhY8DFQAAAAAdAAAAABAE))
 *Modelo de dados em estrela utilizado no projeto*
 
 ### Tabela Fato
